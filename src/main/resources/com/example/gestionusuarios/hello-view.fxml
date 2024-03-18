@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="540.0" prefWidth="723.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionusuarios.HelloController">
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+  </padding>
+   <children>
+      <Pane prefHeight="537.0" prefWidth="683.0">
+         <children>
+            <Label layoutX="233.0" layoutY="14.0" text="Gestion de usuarios">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="93.0" text="Listado de usuario:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ScrollPane layoutX="14.0" layoutY="131.0" prefHeight="249.0" prefWidth="659.0">
+              <content>
+                <AnchorPane fx:id="scrollView" minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="655.0">
+
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+            <Pane layoutX="14.0" layoutY="390.0" prefHeight="101.0" prefWidth="659.0">
+               <children>
+                  <Button layoutY="8.0" mnemonicParsing="false" onAction="#OpenFormRegisterUser" prefHeight="85.0" prefWidth="659.0" style="-fx-background-color: #85b2ff; -fx-border-color: transparent;" text="Crear usuario" textFill="WHITE">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="formRegisterUser" layoutX="50.0" layoutY="19.0" prefHeight="347.0" prefWidth="588.0" style="-fx-background-color: #FFFFFF; -fx-border-color: gray;" visible="false">
+               <children>
+                  <Label layoutX="200.0" layoutY="14.0" text="Registrar nuevo usuario">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="name" layoutX="98.0" layoutY="56.0" prefHeight="44.0" prefWidth="392.0" promptText="ingresar nombre aqui..." />
+                  <TextField fx:id="correo" layoutX="98.0" layoutY="122.0" prefHeight="44.0" prefWidth="392.0" promptText="ingresar correo aqui..." />
+                  <PasswordField fx:id="password" layoutX="98.0" layoutY="186.0" prefHeight="44.0" prefWidth="392.0" promptText="ingresar contraseña aqui..." />
+                  <CheckBox fx:id="admin" layoutX="98.0" layoutY="249.0" mnemonicParsing="false" text="indicar si es administrador" />
+                  <Button onAction="#registerUser" layoutX="379.0" layoutY="287.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="111.0" style="-fx-background-color: #7d97ff; -fx-border-color: transparent;" text="registrar" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="258.0" layoutY="287.0" mnemonicParsing="false" onAction="#CLoseFormRegisterUser" prefHeight="36.0" prefWidth="111.0" style="-fx-background-color: transparent; -fx-border-color: #da3636;" text="cancelar" textFill="#da3636">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="formEditarUsuario" layoutX="48.0" layoutY="26.0" prefHeight="398.0" prefWidth="588.0" style="-fx-background-color: #FFFFFF; -fx-border-color: gray;" visible="false">
+               <children>
+                  <Label layoutX="240.0" layoutY="14.0" text="Editar usuario">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nombreEditar" layoutX="98.0" layoutY="56.0" prefHeight="44.0" prefWidth="392.0" promptText="ingresar nombre aqui..." />
+                  <TextField fx:id="correoEditar"  layoutX="98.0" layoutY="122.0" prefHeight="44.0" prefWidth="392.0" promptText="ingresar correo aqui..." />
+                  <CheckBox fx:id="adminEditar" layoutX="98.0" layoutY="249.0" mnemonicParsing="false" text="indicar si es administrador" />
+                  <Button onAction="#saveEditUser"  layoutX="379.0" layoutY="287.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="111.0" style="-fx-background-color: #7d97ff; -fx-border-color: transparent;" text="guardar" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button onAction="#cerrarEditar" layoutX="258.0" layoutY="287.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="111.0" style="-fx-background-color: transparent; -fx-border-color: #da3636;" text="cancelar" textFill="#da3636">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="panelInfoUser" layoutX="58.0" layoutY="36.0" prefHeight="398.0" prefWidth="588.0" style="-fx-background-color: #FFFFFF; -fx-border-color: gray;" visible="false">
+               <children>
+                  <Label layoutX="215.0" layoutY="14.0" text="Informacion usuario">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button onAction="#cerrarInfoUser" layoutX="434.0" layoutY="340.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="111.0" style="-fx-background-color: transparent; -fx-border-color: #da3636;" text="cerrar" textFill="#da3636">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="26.0" layoutY="106.0" text="Nombre:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="26.0" layoutY="150.0" text="Correo:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="26.0" layoutY="186.0" text="Contraseña:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="26.0" layoutY="225.0" text="administrador:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="infoNombre" layoutX="110.0" layoutY="110.0" text="nombre del usuario registrado" />
+                  <Label fx:id="infoCorreo" layoutX="101.0" layoutY="154.0" text="correo del usuario " />
+                  <Label fx:id="infoPassword" layoutX="131.0" layoutY="190.0" text="contraseña del usuario" />
+                  <Label fx:id="infoAdmin" layoutX="151.0" layoutY="229.0" text="no/ si" />
+                  <Label layoutX="26.0" layoutY="72.0" text="id:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="infoID"  layoutX="101.0" layoutY="76.0" text="1" />
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </children>
+</VBox>
